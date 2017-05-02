@@ -17,14 +17,14 @@
     <a-scene>
         <a-assets>
             <audio id="click-sound" crossorigin="anonymous" src="/audios/click.ogg"></audio>
-            <img id="property" crossorigin="anonymous" src="/images/360/property.jpg" />
-            <img id="property-thumb" crossorigin="anonymous" src="/images/360/thumb-property.jpg" class="thumb-border" />
+            <img id="workstation1" crossorigin="anonymous" src="/images/360/workstation1.jpg" />
+            <img id="workstation1-thumb" crossorigin="anonymous" src="/images/360/thumb-workstation1.jpg" class="thumb-border" />
             <img id="pantry-thumb" crossorigin="anonymous" src="/images/360/thumb-pantry.jpg" class="thumb-border" />
-            <img id="workstation-thumb" crossorigin="anonymous" src="/images/360/thumb-workstation.jpg" class="thumb-border" />
-            <img id="outdoor-thumb" crossorigin="anonymous" src="/images/360/thumb-outdoor.jpg" />
+            <img id="workstation2-thumb" crossorigin="anonymous" src="/images/360/thumb-workstation2.jpg" class="thumb-border" />
+            <img id="reception-thumb" crossorigin="anonymous" src="/images/360/thumb-reception.jpg" />
             <img id="pantry" crossorigin="anonymous" src="/images/360/pantry.jpg">
-            <img id="workstation" crossorigin="anonymous" src="/images/360/workstation.jpg" />
-            <img id="outdoor" crossorigin="anonymous" src="/images/360/outdoor.jpg" />
+            <img id="workstation2" crossorigin="anonymous" src="/images/360/workstation2.jpg" />
+            <img id="reception" crossorigin="anonymous" src="/images/360/reception.jpg" />
 
             <!-- Image link template to be reused. -->
             <script id="link" type="text/html">
@@ -41,15 +41,17 @@
         </a-assets>
 
         <!-- 360-degree image. -->
-        <a-sky id="image-360" radius="10" src="#property"></a-sky>
+        <a-sky id="image-360" radius="10" src="#workstation1"></a-sky>
 
         <!-- Image links. -->
-        <a-entity id="links" layout="type: line; margin: 1.5" position="-1 0 2">
-            <a-entity template="src: #link" data-src="#property" data-thumb="#property-thumb"></a-entity>
-            <a-entity template="src: #link" data-src="#pantry" data-thumb="#pantry-thumb"></a-entity>
-            <a-entity template="src: #link" data-src="#workstation" data-thumb="#workstation-thumb"></a-entity>
-            <a-entity template="src: #link" data-src="#outdoor" data-thumb="#outdoor-thumb"></a-entity>
-        </a-entity>
+        <a-entity template="src: #link" data-src="#workstation1" data-thumb="#workstation1-thumb"
+                  position="0 0 -8"></a-entity>
+        <a-entity template="src: #link" data-src="#pantry" data-thumb="#pantry-thumb"
+                  position="8 0 0" rotation="0 -90 0"></a-entity>
+        <a-entity template="src: #link" data-src="#workstation2" data-thumb="#workstation2-thumb"
+                  position="0 0 8" rotation="0 -180 0"></a-entity>
+        <a-entity template="src: #link" data-src="#reception" data-thumb="#reception-thumb"
+                  position="-8 0 0" rotation="0 90 0"></a-entity>
 
         <!-- Camera + cursor. -->
         <a-entity camera look-controls>
@@ -61,8 +63,6 @@
                 fuse="true"
                 raycaster="objects: .link"></a-cursor>
         </a-entity>
-
-        <a-box color="red" rotation="0 45 45" scale="2 2 2"></a-box>
     </a-scene>
 </body>
 </html>

@@ -16,12 +16,14 @@
 <body>
     <a-scene>
         <a-assets>
-            <img id="property" crossorigin="anonymous" src="/images/360/property.jpg" />
-            <img id="property-thumb" crossorigin="anonymous" src="/images/360/thumb-property.jpg" />
-            <img id="workout-thumb" crossorigin="anonymous" src="/images/360/thumb-workout.jpg" />
-            <img id="outdoor-thumb" crossorigin="anonymous" src="/images/360/thumb-outdoor.jpg" />
             <audio id="click-sound" crossorigin="anonymous" src="/audios/click.ogg"></audio>
-            <img id="workout" crossorigin="anonymous" src="/images/360/workout.jpg">
+            <img id="property" crossorigin="anonymous" src="/images/360/property.jpg" />
+            <img id="property-thumb" crossorigin="anonymous" src="/images/360/thumb-property.jpg" class="thumb-border" />
+            <img id="pantry-thumb" crossorigin="anonymous" src="/images/360/thumb-pantry.jpg" class="thumb-border" />
+            <img id="workstation-thumb" crossorigin="anonymous" src="/images/360/thumb-workstation.jpg" class="thumb-border" />
+            <img id="outdoor-thumb" crossorigin="anonymous" src="/images/360/thumb-outdoor.jpg" />
+            <img id="pantry" crossorigin="anonymous" src="/images/360/pantry.jpg">
+            <img id="workstation" crossorigin="anonymous" src="/images/360/workstation.jpg" />
             <img id="outdoor" crossorigin="anonymous" src="/images/360/outdoor.jpg" />
 
             <!-- Image link template to be reused. -->
@@ -43,8 +45,9 @@
 
         <!-- Image links. -->
         <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
-            <a-entity template="src: #link" data-src="#workout" data-thumb="#workout-thumb"></a-entity>
             <a-entity template="src: #link" data-src="#property" data-thumb="#property-thumb"></a-entity>
+            <a-entity template="src: #link" data-src="#pantry" data-thumb="#pantry-thumb"></a-entity>
+            <a-entity template="src: #link" data-src="#workstation" data-thumb="#workstation-thumb"></a-entity>
             <a-entity template="src: #link" data-src="#outdoor" data-thumb="#outdoor-thumb"></a-entity>
         </a-entity>
 

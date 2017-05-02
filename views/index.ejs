@@ -16,13 +16,13 @@
 <body>
     <a-scene>
         <a-assets>
-            <img id="city" crossorigin="anonymous" src="/images/360/city.jpg" />
-            <img id="city-thumb" crossorigin="anonymous" src="/images/360/thumb-city.jpg" />
-            <img id="cubes-thumb" crossorigin="anonymous" src="/images/360/thumb-cubes.jpg" />
-            <img id="sechelt-thumb" crossorigin="anonymous" src="/images/360/thumb-sechelt.jpg" />
+            <img id="property" crossorigin="anonymous" src="/images/360/property.jpg" />
+            <img id="property-thumb" crossorigin="anonymous" src="/images/360/thumb-property.jpg" />
+            <img id="workout-thumb" crossorigin="anonymous" src="/images/360/thumb-workout.jpg" />
+            <img id="outdoor-thumb" crossorigin="anonymous" src="/images/360/thumb-outdoor.jpg" />
             <audio id="click-sound" crossorigin="anonymous" src="/audios/click.ogg"></audio>
-            <img id="cubes" crossorigin="anonymous" src="/images/360/cubes.jpg">
-            <img id="sechelt" crossorigin="anonymous" src="/images/360/sechelt.jpg" />
+            <img id="workout" crossorigin="anonymous" src="/images/360/workout.jpg">
+            <img id="outdoor" crossorigin="anonymous" src="/images/360/outdoor.jpg" />
 
             <!-- Image link template to be reused. -->
             <script id="link" type="text/html">
@@ -39,13 +39,13 @@
         </a-assets>
 
         <!-- 360-degree image. -->
-        <a-sky id="image-360" radius="10" src="#city"></a-sky>
+        <a-sky id="image-360" radius="10" src="#property"></a-sky>
 
         <!-- Image links. -->
         <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
-            <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-            <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-            <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+            <a-entity template="src: #link" data-src="#workout" data-thumb="#workout-thumb"></a-entity>
+            <a-entity template="src: #link" data-src="#property" data-thumb="#property-thumb"></a-entity>
+            <a-entity template="src: #link" data-src="#outdoor" data-thumb="#outdoor-thumb"></a-entity>
         </a-entity>
 
         <!-- Camera + cursor. -->

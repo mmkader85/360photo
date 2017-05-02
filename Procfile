@@ -1,1 +1,1 @@
-web: SET DEBUG=360photo:* npm start
+web: SET DEBUG=360photo:* & npm start

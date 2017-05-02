@@ -9,4 +9,12 @@ router.get('/', function(req, res, next) {
   );
 });
 
+router.get('/experiment', function(req, res, next) {
+    res.render('experiment',
+        {
+            title: '360 Object position experiment in Web VR'
+        }
+    );
+});
+
 module.exports = router;

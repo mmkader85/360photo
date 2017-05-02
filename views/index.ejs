@@ -44,7 +44,7 @@
         <a-sky id="image-360" radius="10" src="#property"></a-sky>
 
         <!-- Image links. -->
-        <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+        <a-entity id="links" layout="type: line; margin: 1.5" position="-1 0 2">
             <a-entity template="src: #link" data-src="#property" data-thumb="#property-thumb"></a-entity>
             <a-entity template="src: #link" data-src="#pantry" data-thumb="#pantry-thumb"></a-entity>
             <a-entity template="src: #link" data-src="#workstation" data-thumb="#workstation-thumb"></a-entity>
@@ -61,6 +61,8 @@
                 fuse="true"
                 raycaster="objects: .link"></a-cursor>
         </a-entity>
+
+        <a-box color="red" rotation="0 45 45" scale="2 2 2"></a-box>
     </a-scene>
 </body>
 </html>

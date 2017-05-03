@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="<%= title %>" />
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <% include favicon %>
+        <script src="/javascripts/aframe.min.js"></script>
+        <script src="/javascripts/aframe-animation-component@3.0.1.js"></script>
+        <script src="/javascripts/aframe-event-set-component@3.0.1.js"></script>
+        <script src="/javascripts/aframe-layout-component@3.0.1.js"></script>
+        <script src="/javascripts/aframe-template-component@3.1.1.js"></script>
+        <script src="/javascripts/set-image-v2.js"></script>
+    </head>
+<body>
+    <a-scene>
+        <a-assets>
+            <audio id="click-sound" crossorigin="anonymous" src="/audios/click.ogg"></audio>
+            <img id="workstation1" crossorigin="anonymous" src="/images/360/workstation1.jpg" />
+            <img id="workstation1-thumb" crossorigin="anonymous" src="/images/360/thumb-workstation1.jpg" class="thumb-border" />
+            <img id="pantry-thumb" crossorigin="anonymous" src="/images/360/thumb-pantry.jpg" class="thumb-border" />
+            <img id="workstation2-thumb" crossorigin="anonymous" src="/images/360/thumb-workstation2.jpg" class="thumb-border" />
+            <img id="reception-thumb" crossorigin="anonymous" src="/images/360/thumb-reception.jpg" />
+            <img id="pantry" crossorigin="anonymous" src="/images/360/pantry.jpg">
+            <img id="workstation2" crossorigin="anonymous" src="/images/360/workstation2.jpg" />
+            <img id="reception" crossorigin="anonymous" src="/images/360/reception.jpg" />
+
+            <!-- Image link template to be reused. -->
+            <script id="link" type="text/html">
+                <a-entity class="link"
+                    geometry="primitive: plane; height: 1; width: 1"
+                    material="shader: flat; src: ${thumb}"
+                    event-set__1="_event: mousedown; scale: 1 1 1"
+                    event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+                    event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+                    event-set__4="_event: mouseleave; scale: 1 1 1"
+                    set-image="on: click; target: #image-360; src: ${src}"
+                    sound="on: click; src: #click-sound"></a-entity>
+            </script>
+        </a-assets>
+
+        <!-- 360-degree image. -->
+        <a-sky id="image-360" radius="10" src="#workstation1"></a-sky>
+
+        <!-- Image links. -->
+        <a-entity template="src: #link" data-src="#workstation1" data-thumb="#workstation1-thumb"
+                  position="0 0 -8"></a-entity>
+        <a-entity template="src: #link" data-src="#pantry" data-thumb="#pantry-thumb"
+                  position="8 0 0" rotation="0 -90 0"></a-entity>
+        <a-entity template="src: #link" data-src="#workstation2" data-thumb="#workstation2-thumb"
+                  position="0 0 8" rotation="0 -180 0"></a-entity>
+        <a-entity template="src: #link" data-src="#reception" data-thumb="#reception-thumb"
+                  position="-8 0 0" rotation="0 90 0"></a-entity>
+
+        <!-- Camera + cursor. -->
+        <a-entity camera look-controls>
+            <a-cursor id="cursor"
+                animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+                animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+                event-set__1="_event: mouseenter; color: springgreen"
+                event-set__2="_event: mouseleave; color: black"
+                fuse="true"
+                raycaster="objects: .link"></a-cursor>
+        </a-entity>
+    </a-scene>
+</body>
+</html>

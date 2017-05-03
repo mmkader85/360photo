@@ -27,7 +27,33 @@ AFRAME.registerComponent('set-image', {
             // Wait for fade to complete.
             setTimeout(function () {
                 // Set thumbs relative to the target
-                setThumbProperties(data);
+                var target = data.src.split('#').pop();
+                var thumbProperties = {
+                    src: {
+                        pantry: {
+                            reception: [
+                                ['visible', false]
+                            ]
+                        }
+                    }
+                };
+
+                if (typeof thumbProperties.src[target] !== 'undefined') {
+                    for (var relativeElementId in thumbProperties.src[target]) {
+                        var relativeElement = document.querySelector('#'+relativeElementId+'-thumb');
+                        console.log(relativeElement);
+                        for (var i in thumbProperties.src[target][relativeElementId]) {
+                            var relativeElementProperty = thumbProperties.src[target][relativeElementId][i];
+                            if (relativeElementProperty.length == 2) {
+                                console.log('Setting attribute ' + relativeElementProperty[0] + ', ' + relativeElementProperty[1] + ' to ' + relativeElementId);
+                                relativeElement.setAttribute(relativeElementProperty[0], relativeElementProperty[1]);
+                            } else if (relativeElementProperty.length == 3) {
+                                console.log('Setting attribute ' + relativeElementProperty[0] + ', ' + relativeElementProperty[1] + ', ' + relativeElementProperty[2] + ' to ' + relativeElementId);
+                                relativeElement.setAttribute(relativeElementProperty[0], relativeElementProperty[1], relativeElementProperty[2]);
+                            }
+                        }
+                    }
+                }
                 // Set image.
                 data.target.setAttribute('material', 'src', data.src);
             }, data.dur);
@@ -56,34 +82,3 @@ AFRAME.registerComponent('set-image', {
         });
     },
 });
-
-var setThumbProperties = function (data) {
-    console.log(data);
-
-    var target = data.src.split('#').pop();
-    var thumbProperties = {
-        src: {
-            pantry: {
-                reception: [
-                    ['visible', false]
-                ]
-            }
-        }
-    };
-
-    if (typeof thumbProperties.src[target] !== 'undefined') {
-        for (var relativeElementId in thumbProperties.src[target]) {
-            var relativeElement = document.querySelector('#'+relativeElementId);
-            for (var i in thumbProperties.src[target][relativeElementId]) {
-                var relativeElementProperty = thumbProperties.src[target][relativeElementId][i];
-                if (relativeElementProperty.length == 2) {
-                    console.log('Setting attribute ' + relativeElementProperty[0] + ', ' + relativeElementProperty[1] + ' to ' + relativeElementId);
-                    relativeElement.setAttribute(relativeElementProperty[0], relativeElementProperty[1]);
-                } else if (relativeElementProperty.length == 3) {
-                    console.log('Setting attribute ' + relativeElementProperty[0] + ', ' + relativeElementProperty[1] + ', ' + relativeElementProperty[2] + ' to ' + relativeElementId);
-                    relativeElement.setAttribute(relativeElementProperty[0], relativeElementProperty[1], relativeElementProperty[2]);
-                }
-            }
-        }
-    }
-}

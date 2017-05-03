@@ -1,0 +1,29 @@
+            <audio id="click-sound" crossorigin="anonymous" src="/audios/click.ogg"></audio>
+            <img id="reception1-thumb" crossorigin="anonymous" src="/images/360/thumb-reception1.jpg" />
+            <img id="reception3-thumb" crossorigin="anonymous" src="/images/360/thumb-reception3.jpg" />
+            <img id="workstation1-thumb" crossorigin="anonymous" src="/images/360/thumb-workstation1.jpg" />
+            <img id="workstation2-thumb" crossorigin="anonymous" src="/images/360/thumb-workstation2.jpg" />
+            <img id="workstation3-thumb" crossorigin="anonymous" src="/images/360/thumb-workstation3.jpg" />
+            <img id="pantry1-thumb" crossorigin="anonymous" src="/images/360/thumb-pantry1.jpg" />
+            <img id="pantry2-thumb" crossorigin="anonymous" src="/images/360/thumb-pantry2.jpg" />
+
+            <img id="reception1" crossorigin="anonymous" src="/images/360/reception1.jpg" />
+            <img id="reception3" crossorigin="anonymous" src="/images/360/reception3.jpg" />
+            <img id="workstation1" crossorigin="anonymous" src="/images/360/workstation1.jpg" />
+            <img id="workstation2" crossorigin="anonymous" src="/images/360/workstation2.jpg" />
+            <img id="workstation3" crossorigin="anonymous" src="/images/360/workstation3.jpg" />
+            <img id="pantry1" crossorigin="anonymous" src="/images/360/pantry1.jpg">
+            <img id="pantry2" crossorigin="anonymous" src="/images/360/pantry2.jpg">
+
+            <!-- Image link template to be reused. -->
+            <script id="link" type="text/html">
+                <a-entity class="link"
+                          geometry="primitive: plane; height: 1; width: 1"
+                          material="shader: flat; src: ${thumb}"
+                          event-set__1="_event: mousedown; scale: 1 1 1"
+                          event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+                          event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+                          event-set__4="_event: mouseleave; scale: 1 1 1"
+                          set-image="on: click; target: #image-360; src: ${src}"
+                          sound="on: click; src: #click-sound"></a-entity>
+            </script>

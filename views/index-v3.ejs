@@ -23,14 +23,20 @@
         <a-sky id="image-360" radius="10" src="#workstation1"></a-sky>
 
         <!-- Image links. -->
+        <a-entity template="src: #link" data-src="#reception1" data-thumb="#reception1-thumb"
+                  position="0 0 -8"></a-entity>
+        <a-entity template="src: #link" data-src="#reception3" data-thumb="#reception3-thumb"
+                  position="6 0 -6" rotation="0 -50 0"></a-entity>
         <a-entity template="src: #link" data-src="#workstation1" data-thumb="#workstation1-thumb"
-                  position="0 0 -8" id="workstation1-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#pantry" data-thumb="#pantry-thumb"
-                  position="8 0 0" rotation="0 -90 0" id="pantry-thumb"></a-entity>
+                  position="8 0 2" rotation="0 -100 0"></a-entity>
         <a-entity template="src: #link" data-src="#workstation2" data-thumb="#workstation2-thumb"
-                  position="0 0 8" rotation="0 -180 0" id="workstation2-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#reception" data-thumb="#reception-thumb"
-                  position="-8 0 0" rotation="0 90 0" id="reception-thumb"></a-entity>
+                  position="6 0 6" rotation="0 -160 0"></a-entity>
+        <a-entity template="src: #link" data-src="#workstation3" data-thumb="#workstation3-thumb"
+                  position="-6 0 6" rotation="0 -220 0"></a-entity>
+        <a-entity template="src: #link" data-src="#pantry1" data-thumb="#pantry1-thumb"
+                  position="-8 0 0" rotation="0 -270 0"></a-entity>
+        <a-entity template="src: #link" data-src="#pantry2" data-thumb="#pantry2-thumb"
+                  position="-6 0 -6" rotation="0 -320 0"></a-entity>
 
         <!-- Camera + cursor. -->
         <a-entity camera look-controls>
